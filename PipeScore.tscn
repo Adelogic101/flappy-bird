@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://gft2yfi02d5k"]
+
+[ext_resource type="Script" path="res://PipeScore.cs" id="1_5vv3h"]
+[ext_resource type="PackedScene" uid="uid://dp2ht6xdf4ecs" path="res://ScoreSensor.tscn" id="1_x6jml"]
+[ext_resource type="PackedScene" uid="uid://6mour7od4kk0" path="res://Pipe.tscn" id="2_qdawj"]
+
+[node name="PipeScore" type="Node2D"]
+script = ExtResource("1_5vv3h")
+
+[node name="ScoreSensor" parent="." instance=ExtResource("1_x6jml")]
+position = Vector2(0, -2)
+
+[node name="FlappyObjects" parent="." instance=ExtResource("2_qdawj")]
+position = Vector2(-2, -349)
+
+[node name="FlappyObjects2" parent="." instance=ExtResource("2_qdawj")]
+position = Vector2(0, 358)

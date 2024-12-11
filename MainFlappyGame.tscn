@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8gbud5ix8h4m"]
+
+[ext_resource type="Script" path="res://MainFlappyGame.cs" id="1_1tk34"]
+[ext_resource type="PackedScene" uid="uid://baghib5a2uyai" path="res://FlappyPlayer.tscn" id="1_b2tsx"]
+[ext_resource type="Texture2D" uid="uid://o1qrotiew5f4" path="res://GameScene.png" id="1_ikj8x"]
+[ext_resource type="PackedScene" uid="uid://dsbimr5jwn8st" path="res://RoofFloor.tscn" id="5_koarx"]
+
+[node name="MainFlappy" type="Node2D"]
+process_mode = 3
+position = Vector2(578, 330)
+script = ExtResource("1_1tk34")
+
+[node name="GameOverScreen" type="CanvasLayer" parent="."]
+process_mode = 2
+
+[node name="RestartButton" type="Button" parent="GameOverScreen"]
+process_mode = 2
+top_level = true
+offset_left = 25.0
+offset_top = 44.0
+offset_right = 90.0
+offset_bottom = 75.0
+text = "Restart"
+
+[node name="QuitButton" type="Button" parent="GameOverScreen"]
+process_mode = 2
+top_level = true
+offset_left = 26.0
+offset_top = 101.0
+offset_right = 91.0
+offset_bottom = 132.0
+text = "Quit"
+
+[node name="GameScene" type="Sprite2D" parent="."]
+process_mode = 1
+position = Vector2(-0.500015, -2)
+scale = Vector2(1.25027, 1.36421)
+texture = ExtResource("1_ikj8x")
+
+[node name="flappyplayer" parent="." instance=ExtResource("1_b2tsx")]
+position = Vector2(1, -1)
+
+[node name="Camera2D" type="Camera2D" parent="flappyplayer"]
+
+[node name="Roof" parent="." instance=ExtResource("5_koarx")]
+process_mode = 1
+position = Vector2(2, -321)
+
+[node name="Floor" parent="." instance=ExtResource("5_koarx")]
+process_mode = 1
+position = Vector2(9, 312)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(349, 2)
+gizmo_extents = 0.0
+
+[node name="Timer" type="Timer" parent="Marker2D"]
+
+[connection signal="pressed" from="GameOverScreen/RestartButton" to="." method="OnRestartButtonPressed"]
+[connection signal="pressed" from="GameOverScreen/QuitButton" to="." method="OnQuitButtonPressed"]
+[connection signal="GameOver" from="flappyplayer" to="." method="GameOverSignal"]
+[connection signal="timeout" from="Marker2D/Timer" to="." method="OnTimerTimeout"]

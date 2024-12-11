@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://6mour7od4kk0"]
+
+[ext_resource type="Script" path="res://Pipe.cs" id="1_hwrcq"]
+[ext_resource type="Texture2D" uid="uid://5kn4j1kp1flp" path="res://CollisionShape.png" id="1_lhi3p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14hyy"]
+size = Vector2(53.2656, 219.57)
+
+[node name="FlappyObjects" type="Area2D"]
+process_mode = 1
+script = ExtResource("1_hwrcq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.36718, 1.28525)
+shape = SubResource("RectangleShape2D_14hyy")
+
+[node name="CollisionShape" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+scale = Vector2(1.78261, 3.09896)
+texture = ExtResource("1_lhi3p")

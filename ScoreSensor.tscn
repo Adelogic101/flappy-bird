@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dp2ht6xdf4ecs"]
+
+[ext_resource type="Script" path="res://ScoreSensor.cs" id="1_bweni"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q15y0"]
+size = Vector2(67.5, 439.25)
+
+[node name="ScoreSensor" type="Area2D"]
+script = ExtResource("1_bweni")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_q15y0")

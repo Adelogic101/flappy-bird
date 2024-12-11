@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsbimr5jwn8st"]
+
+[ext_resource type="Texture2D" uid="uid://dkunpu6xckxgi" path="res://RoofFloor.png" id="1_cjuhk"]
+[ext_resource type="Script" path="res://RoofFloor.cs" id="1_imw81"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6y6d2"]
+size = Vector2(1167, 18)
+
+[node name="RoofFloor" type="Area2D"]
+script = ExtResource("1_imw81")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -1)
+shape = SubResource("RectangleShape2D_6y6d2")
+
+[node name="RoofFloor" type="Sprite2D" parent="."]
+position = Vector2(-1, -1.25)
+scale = Vector2(1, 1.14706)
+texture = ExtResource("1_cjuhk")
